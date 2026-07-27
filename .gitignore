@@ -1,0 +1,14 @@
+# Nginx 自签发证书与私钥（勿提交）
+nginx/ssl/*.key
+nginx/ssl/*.crt
+nginx/ssl/*.csr
+nginx/ssl/*.pem
+nginx/ssl/.openssl-san.generated.cnf
+
+# 环境变量与日志
+.env
+logs/*.log
+data/chroma/**
+data/uploads/**
+!data/chroma/.gitkeep
+!data/uploads/.gitkeep
