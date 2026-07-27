@@ -1,0 +1,1212 @@
+2026-07-25 10:00:37 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=D:\wuchch\training\cur0724-RAG\logs
+2026-07-25 07:26:23 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 07:26:51 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 07:26:52 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 07:26:52 | WARNING  | passlib.handlers.bcrypt | (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-07-25 07:26:53 | INFO     | src.services.auth_service | 已初始化演示账号: admin
+2026-07-25 07:26:53 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 07:28:24 | INFO     | src.services.captcha_service | 验证码已生成 captcha_id=cap_f06baac2-93f2-41bc-9d59-fb247601b1e0
+2026-07-25 07:30:36 | INFO     | src.services.captcha_service | 验证码已生成 captcha_id=cap_290d2506-cc1b-4fd1-9f5b-e527f8c891f6
+2026-07-25 07:30:47 | INFO     | src.services.auth_service | 用户登录成功 user_id=1 username=admin
+2026-07-25 07:30:51 | INFO     | src.services.chat_service | 创建会话 session_id=sess_52fc341e-1a60-459d-b11e-93754933a825 user_id=1
+2026-07-25 07:31:15 | INFO     | src.services.document_converter | Word->Markdown 成功(mammoth): doc_9ac33861bb12_raw.docx，长度=5180010
+2026-07-25 07:31:16 | INFO     | src.services.document_converter | 已生成 Markdown 文件: /app/data/uploads/markdown/doc_9ac33861bb12.md
+2026-07-25 07:31:17 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1
+2026-07-25 07:31:17 | ERROR    | src.services.document_service | 文档索引失败 document_id=doc_9ac33861bb12: 'text-embedding-v4' is not a valid OpenAIEmbeddingModelType
+Traceback (most recent call last):
+  File "/app/src/services/document_service.py", line 75, in save_and_index_document
+    pipeline = get_rag_pipeline()
+               ^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/pipeline.py", line 123, in get_rag_pipeline
+    _pipeline_singleton = RAGPipeline()
+                          ^^^^^^^^^^^^^
+  File "/app/src/rag/pipeline.py", line 34, in __init__
+    self.indexer = RAGIndexer(self.settings)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/indexing.py", line 52, in __init__
+    self._embed_model = build_embed_model(self.settings)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/embeddings.py", line 47, in build_embed_model
+    return OpenAIEmbedding(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/embeddings/openai/base.py", line 307, in __init__
+    query_engine = get_engine(mode, model, _QUERY_MODE_MODEL_DICT)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/embeddings/openai/base.py", line 208, in get_engine
+    key = (OpenAIEmbeddingMode(mode), OpenAIEmbeddingModelType(model))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'text-embedding-v4' is not a valid OpenAIEmbeddingModelType
+2026-07-25 07:31:17 | WARNING  | src.api.documents | 文档上传参数错误: 'text-embedding-v4' is not a valid OpenAIEmbeddingModelType
+2026-07-25 07:43:17 | INFO     | src.main | 应用正在关闭
+2026-07-25 07:45:57 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 07:46:21 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 07:46:21 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 07:46:21 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 07:47:05 | INFO     | src.services.document_converter | Word->Markdown 成功(mammoth): doc_0932a3533a85_raw.docx，长度=5180010
+2026-07-25 07:47:05 | INFO     | src.services.document_converter | 已生成 Markdown 文件: /app/data/uploads/markdown/doc_0932a3533a85.md
+2026-07-25 07:47:06 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1
+2026-07-25 07:47:09 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 07:47:09 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 07:47:09 | INFO     | src.rag.pipeline | 增量索引文档: /app/document/doc_0932a3533a85_大唐电信时频同步设备网管系统_使用手册.md，document_id=doc_0932a3533a85
+2026-07-25 07:47:09 | INFO     | src.rag.document_loader | 加载单个文档: /app/document/doc_0932a3533a85_大唐电信时频同步设备网管系统_使用手册.md
+2026-07-25 07:47:09 | WARNING  | llama_index.core.readers.file.base | `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-07-25 07:47:09 | INFO     | src.rag.indexing | 开始父子分片，文档数=1，chunk_sizes=[2048, 512]
+2026-07-25 07:48:46 | INFO     | src.rag.indexing | 分片完成，总节点=15786，叶子节点(子块)=13157，父块≈2629
+2026-07-25 07:48:53 | INFO     | src.rag.indexing | 开始向 Chroma 写入叶子节点，数量=13157
+2026-07-25 07:48:56 | ERROR    | src.services.document_service | 文档索引失败 document_id=doc_0932a3533a85: Error code: 400 - {'error': {'message': '<400> InternalError.Algo.InvalidParameter: Value error, batch size is invalid, it should not be larger than 20.: input.contents', 'type': 'InvalidParameter', 'param': None, 'code': 'InvalidParameter'}, 'id': '4df57424-03b5-9f77-a997-b9ab72d4b7fa', 'request_id': '4df57424-03b5-9f77-a997-b9ab72d4b7fa'}
+Traceback (most recent call last):
+  File "/app/src/services/document_service.py", line 76, in save_and_index_document
+    pipeline.add_document(index_target, document_id=document_id)
+  File "/app/src/rag/pipeline.py", line 73, in add_document
+    self.indexer.add_file(file_path, document_id=document_id)
+  File "/app/src/rag/indexing.py", line 214, in add_file
+    return self.index_nodes(nodes, replace=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/indexing.py", line 164, in index_nodes
+    index = VectorStoreIndex(
+            ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 75, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/base.py", line 79, in __init__
+    index_struct = self.build_index_from_nodes(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 309, in build_index_from_nodes
+    return self._build_index_from_nodes(content_nodes, **insert_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 278, in _build_index_from_nodes
+    self._add_nodes_to_index(
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 231, in _add_nodes_to_index
+    nodes_batch = self._get_node_with_embedding(nodes_batch, show_progress)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 138, in _get_node_with_embedding
+    id_to_embed_map = embed_nodes(
+                      ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/utils.py", line 196, in embed_nodes
+    new_embeddings = embed_model.get_text_embedding_batch(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/base/embeddings/base.py", line 517, in get_text_embedding_batch
+    embeddings = self._get_text_embeddings(cur_batch)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/embeddings/openai/base.py", line 472, in _get_text_embeddings
+    return _retryable_get_embeddings()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.11/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/embeddings/openai/base.py", line 465, in _retryable_get_embeddings
+    return get_embeddings(
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/embeddings/openai/base.py", line 172, in get_embeddings
+    data = client.embeddings.create(input=list_of_text, model=engine, **kwargs).data
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/openai/resources/embeddings.py", line 136, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 1332, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 1105, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': '<400> InternalError.Algo.InvalidParameter: Value error, batch size is invalid, it should not be larger than 20.: input.contents', 'type': 'InvalidParameter', 'param': None, 'code': 'InvalidParameter'}, 'id': '4df57424-03b5-9f77-a997-b9ab72d4b7fa', 'request_id': '4df57424-03b5-9f77-a997-b9ab72d4b7fa'}
+2026-07-25 07:48:57 | ERROR    | src.api.documents | 文档上传/索引失败: Error code: 400 - {'error': {'message': '<400> InternalError.Algo.InvalidParameter: Value error, batch size is invalid, it should not be larger than 20.: input.contents', 'type': 'InvalidParameter', 'param': None, 'code': 'InvalidParameter'}, 'id': '4df57424-03b5-9f77-a997-b9ab72d4b7fa', 'request_id': '4df57424-03b5-9f77-a997-b9ab72d4b7fa'}
+Traceback (most recent call last):
+  File "/app/src/api/documents.py", line 33, in upload_document
+    data = await save_and_index_document(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/services/document_service.py", line 76, in save_and_index_document
+    pipeline.add_document(index_target, document_id=document_id)
+  File "/app/src/rag/pipeline.py", line 73, in add_document
+    self.indexer.add_file(file_path, document_id=document_id)
+  File "/app/src/rag/indexing.py", line 214, in add_file
+    return self.index_nodes(nodes, replace=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/indexing.py", line 164, in index_nodes
+    index = VectorStoreIndex(
+            ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 75, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/base.py", line 79, in __init__
+    index_struct = self.build_index_from_nodes(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 309, in build_index_from_nodes
+    return self._build_index_from_nodes(content_nodes, **insert_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 278, in _build_index_from_nodes
+    self._add_nodes_to_index(
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 231, in _add_nodes_to_index
+    nodes_batch = self._get_node_with_embedding(nodes_batch, show_progress)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 138, in _get_node_with_embedding
+    id_to_embed_map = embed_nodes(
+                      ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/utils.py", line 196, in embed_nodes
+    new_embeddings = embed_model.get_text_embedding_batch(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/base/embeddings/base.py", line 517, in get_text_embedding_batch
+    embeddings = self._get_text_embeddings(cur_batch)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/embeddings/openai/base.py", line 472, in _get_text_embeddings
+    return _retryable_get_embeddings()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.11/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/embeddings/openai/base.py", line 465, in _retryable_get_embeddings
+    return get_embeddings(
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/embeddings/openai/base.py", line 172, in get_embeddings
+    data = client.embeddings.create(input=list_of_text, model=engine, **kwargs).data
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/openai/resources/embeddings.py", line 136, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 1332, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/openai/_base_client.py", line 1105, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': '<400> InternalError.Algo.InvalidParameter: Value error, batch size is invalid, it should not be larger than 20.: input.contents', 'type': 'InvalidParameter', 'param': None, 'code': 'InvalidParameter'}, 'id': '4df57424-03b5-9f77-a997-b9ab72d4b7fa', 'request_id': '4df57424-03b5-9f77-a997-b9ab72d4b7fa'}
+2026-07-25 07:48:57 | INFO     | src.agent.graph | LangGraph Agent 图已编译
+2026-07-25 07:48:57 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=0
+2026-07-25 07:48:58 | INFO     | src.agent.graph | 执行 ems_handbook_tool，query=上下班时间 工作时间 考勤制度
+2026-07-25 07:48:58 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 被调用，query=上下班时间 工作时间 考勤制度
+2026-07-25 07:48:58 | INFO     | src.rag.reranker | RerankService 配置完成，model=BAAI/bge-reranker-base，top_n=5
+2026-07-25 07:48:59 | INFO     | src.rag.hybrid_retriever | 构建 BM25 检索器，语料节点数=13157
+2026-07-25 07:49:06 | ERROR    | src.agent.graph | ems_handbook_tool 执行超时
+2026-07-25 07:49:06 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=1
+2026-07-25 07:49:06 | INFO     | src.rag.hybrid_retriever | HybridAutoMergingRetriever 初始化完成，top_k=20，enable_rerank=True
+2026-07-25 07:49:06 | INFO     | src.rag.pipeline | HybridSearchEngine 已就绪
+2026-07-25 07:49:06 | INFO     | src.rag.hybrid_retriever | 混合检索开始，query=上下班时间 工作时间 考勤制度
+2026-07-25 07:49:07 | INFO     | src.rag.hybrid_retriever | 向量/AutoMerging 召回数量=0
+2026-07-25 07:49:07 | INFO     | src.rag.hybrid_retriever | BM25 召回数量=20
+2026-07-25 07:49:07 | INFO     | src.rag.hybrid_retriever | RRF 融合后候选数=20
+2026-07-25 07:49:07 | INFO     | src.rag.reranker | 正在加载重排序模型: BAAI/bge-reranker-base
+2026-07-25 07:49:49 | WARNING  | huggingface_hub.utils._http | '[Errno 101] Network is unreachable' thrown while requesting HEAD https://huggingface.co/BAAI/bge-reranker-base/resolve/main/./modules.json
+2026-07-25 07:49:49 | WARNING  | huggingface_hub.utils._http | Retrying in 1s [Retry 1/5].
+2026-07-25 07:49:50 | ERROR    | src.rag.hybrid_retriever | 混合检索失败: Cannot send a request, as the client has been closed.
+Traceback (most recent call last):
+  File "/app/src/rag/hybrid_retriever.py", line 200, in retrieve_as_dict
+    nodes = self.retrieve(query)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/hybrid_retriever.py", line 184, in retrieve
+    return self.retriever.retrieve(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/base/base_retriever.py", line 216, in retrieve
+    nodes = self._retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/hybrid_retriever.py", line 151, in _retrieve
+    return self.reranker.rerank(query=query, nodes=fused)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/reranker.py", line 68, in rerank
+    postprocessor = self._get_postprocessor()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/reranker.py", line 42, in _get_postprocessor
+    self._postprocessor = SentenceTransformerRerank(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/postprocessor/sbert_rerank.py", line 51, in __init__
+    self._model = CrossEncoder(
+                  ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sentence_transformers/util/decorators.py", line 160, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sentence_transformers/cross_encoder/model.py", line 182, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.11/site-packages/sentence_transformers/base/model.py", line 204, in __init__
+    modules, self.module_kwargs = self._load_modules(
+                                  ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sentence_transformers/base/model.py", line 972, in _load_modules
+    modules_json_path = load_file_path(
+                        ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sentence_transformers/util/file_io.py", line 116, in load_file_path
+    return hf_hub_download(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1010, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1143, in _hf_hub_download_to_cache_dir
+    _get_metadata_or_catch_error(
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1682, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1604, in get_hf_file_metadata
+    response = _httpx_follow_relative_redirects_with_backoff(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 685, in _httpx_follow_relative_redirects_with_backoff
+    response = http_backoff(
+               ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 559, in http_backoff
+    return next(
+           ^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 467, in _http_backoff_base
+    response = client.request(method=method, url=url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/httpx/_client.py", line 901, in send
+    raise RuntimeError("Cannot send a request, as the client has been closed.")
+RuntimeError: Cannot send a request, as the client has been closed.
+2026-07-25 07:49:50 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 执行完成，status=error，nodes=0
+2026-07-25 07:51:02 | INFO     | src.main | 应用正在关闭
+2026-07-25 07:52:28 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 07:52:43 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 07:52:43 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 07:52:43 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 07:52:58 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1, batch=10
+2026-07-25 07:52:59 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 07:52:59 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 07:52:59 | INFO     | src.rag.pipeline | 增量索引文档: /app/data/uploads/doc_a88694221bc1_raw.md，document_id=doc_a88694221bc1
+2026-07-25 07:52:59 | INFO     | src.rag.document_loader | 加载单个文档: /app/data/uploads/doc_a88694221bc1_raw.md
+2026-07-25 07:52:59 | WARNING  | llama_index.core.readers.file.base | `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-07-25 07:52:59 | INFO     | src.rag.indexing | 开始父子分片，文档数=1，chunk_sizes=[2048, 512]
+2026-07-25 07:52:59 | INFO     | src.rag.indexing | 分片完成，总节点=2，叶子节点(子块)=1，父块≈1
+2026-07-25 07:52:59 | INFO     | src.rag.indexing | 开始向 Chroma 写入叶子节点，数量=1
+2026-07-25 07:53:00 | INFO     | src.rag.indexing | DocStore 已持久化: /app/data/chroma/docstore.json，节点数=2
+2026-07-25 07:53:00 | INFO     | src.rag.indexing | 索引写入完成，Chroma 文档数=1
+2026-07-25 07:53:00 | INFO     | src.rag.pipeline | 检索引擎缓存已失效
+2026-07-25 07:53:00 | INFO     | src.rag.pipeline | 增量索引完成: /app/data/uploads/doc_a88694221bc1_raw.md
+2026-07-25 07:53:00 | INFO     | src.services.document_service | 文档索引完成 document_id=doc_a88694221bc1
+2026-07-25 07:53:08 | INFO     | src.agent.graph | LangGraph Agent 图已编译
+2026-07-25 07:53:08 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=0
+2026-07-25 07:53:09 | INFO     | src.agent.graph | 执行 ems_handbook_tool，query=上下班时间 考勤制度 工作时间
+2026-07-25 07:53:09 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 被调用，query=上下班时间 考勤制度 工作时间
+2026-07-25 07:53:09 | INFO     | src.rag.reranker | RerankService 配置完成，model=BAAI/bge-reranker-base，top_n=5
+2026-07-25 07:53:10 | INFO     | src.rag.hybrid_retriever | 构建 BM25 检索器，语料节点数=1
+2026-07-25 07:53:10 | WARNING  | llama_index.retrievers.bm25.base | As bm25s.BM25 requires k less than or equal to number of nodes added. Overriding the value of similarity_top_k to number of nodes added.
+2026-07-25 07:53:10 | INFO     | src.rag.hybrid_retriever | HybridAutoMergingRetriever 初始化完成，top_k=20，enable_rerank=True
+2026-07-25 07:53:10 | INFO     | src.rag.pipeline | HybridSearchEngine 已就绪
+2026-07-25 07:53:10 | INFO     | src.rag.hybrid_retriever | 混合检索开始，query=上下班时间 考勤制度 工作时间
+2026-07-25 07:53:10 | INFO     | llama_index.core.retrievers.auto_merging_retriever | > Merging 1 nodes into parent node.
+> Parent node id: 9726beef-55c1-4f68-81dc-c34907391473.
+> Parent node text: # 员工手册（测试样例）
+
+## 第一章 总则
+
+本公司为上海佳得森辉新材料(集团)有限公司。本手册适用于全体正式员工与试用期员工。
+
+## 第二章 考勤管理
+
+1. 标准工作时间为每周一至周五...
+
+2026-07-25 07:53:10 | INFO     | src.rag.hybrid_retriever | 向量/AutoMerging 召回数量=1
+2026-07-25 07:53:10 | INFO     | src.rag.hybrid_retriever | BM25 召回数量=1
+2026-07-25 07:53:10 | INFO     | src.rag.hybrid_retriever | RRF 融合后候选数=2
+2026-07-25 07:53:10 | INFO     | src.rag.reranker | 正在加载重排序模型: BAAI/bge-reranker-base
+2026-07-25 07:53:14 | ERROR    | src.agent.graph | ems_handbook_tool 执行超时
+2026-07-25 07:53:14 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=1
+2026-07-25 07:53:46 | WARNING  | huggingface_hub.utils._http | '[Errno 101] Network is unreachable' thrown while requesting HEAD https://huggingface.co/BAAI/bge-reranker-base/resolve/main/./modules.json
+2026-07-25 07:53:46 | WARNING  | huggingface_hub.utils._http | Retrying in 1s [Retry 1/5].
+2026-07-25 07:53:47 | ERROR    | src.rag.hybrid_retriever | 混合检索失败: Cannot send a request, as the client has been closed.
+Traceback (most recent call last):
+  File "/app/src/rag/hybrid_retriever.py", line 200, in retrieve_as_dict
+    nodes = self.retrieve(query)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/hybrid_retriever.py", line 184, in retrieve
+    return self.retriever.retrieve(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/base/base_retriever.py", line 216, in retrieve
+    nodes = self._retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/hybrid_retriever.py", line 151, in _retrieve
+    return self.reranker.rerank(query=query, nodes=fused)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/reranker.py", line 68, in rerank
+    postprocessor = self._get_postprocessor()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/reranker.py", line 42, in _get_postprocessor
+    self._postprocessor = SentenceTransformerRerank(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/postprocessor/sbert_rerank.py", line 51, in __init__
+    self._model = CrossEncoder(
+                  ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sentence_transformers/util/decorators.py", line 160, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sentence_transformers/cross_encoder/model.py", line 182, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.11/site-packages/sentence_transformers/base/model.py", line 204, in __init__
+    modules, self.module_kwargs = self._load_modules(
+                                  ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sentence_transformers/base/model.py", line 972, in _load_modules
+    modules_json_path = load_file_path(
+                        ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sentence_transformers/util/file_io.py", line 116, in load_file_path
+    return hf_hub_download(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1010, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1143, in _hf_hub_download_to_cache_dir
+    _get_metadata_or_catch_error(
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1682, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1604, in get_hf_file_metadata
+    response = _httpx_follow_relative_redirects_with_backoff(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 685, in _httpx_follow_relative_redirects_with_backoff
+    response = http_backoff(
+               ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 559, in http_backoff
+    return next(
+           ^^^^^
+  File "/usr/local/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 467, in _http_backoff_base
+    response = client.request(method=method, url=url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/httpx/_client.py", line 901, in send
+    raise RuntimeError("Cannot send a request, as the client has been closed.")
+RuntimeError: Cannot send a request, as the client has been closed.
+2026-07-25 07:53:47 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 执行完成，status=error，nodes=0
+2026-07-25 07:58:44 | INFO     | src.main | 应用正在关闭
+2026-07-25 07:58:45 | ERROR    | sqlalchemy.pool.impl.AsyncAdaptedQueuePool | Exception terminating connection <AdaptedConnection <asyncpg.connection.Connection object at 0x7e365337f970>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 373, in _close_connection
+    self._dialect.do_terminate(connection)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 1127, in do_terminate
+    dbapi_connection.terminate()
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/connectors/asyncio.py", line 415, in terminate
+    self._terminate_force_close()
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 916, in _terminate_force_close
+    self._connection.terminate()
+  File "/usr/local/lib/python3.11/site-packages/asyncpg/connection.py", line 1524, in terminate
+    self._abort()
+  File "/usr/local/lib/python3.11/site-packages/asyncpg/connection.py", line 1576, in _abort
+    self._protocol.abort()
+  File "asyncpg/protocol/protocol.pyx", line 598, in asyncpg.protocol.protocol.BaseProtocol.abort
+  File "asyncpg/protocol/coreproto.pyx", line 1205, in asyncpg.protocol.protocol.CoreProtocol._terminate
+  File "asyncpg/protocol/protocol.pyx", line 956, in asyncpg.protocol.protocol.BaseProtocol._write
+  File "uvloop/handles/stream.pyx", line 675, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x60e71c8bdec0>; the handler is closed
+2026-07-25 07:58:45 | ERROR    | sqlalchemy.pool.impl.AsyncAdaptedQueuePool | The garbage collector is trying to clean up non-checked-in connection <AdaptedConnection <asyncpg.connection.Connection object at 0x7e365337f970>>, which will be terminated.  Please ensure that SQLAlchemy pooled connections are returned to the pool explicitly, either by calling ``close()`` or by using appropriate context managers to manage their lifecycle.
+2026-07-25 07:59:58 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:00:06 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 08:00:06 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 08:00:06 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 08:01:09 | INFO     | src.agent.graph | LangGraph Agent 图已编译
+2026-07-25 08:01:09 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=0
+2026-07-25 08:01:11 | INFO     | src.agent.graph | 执行 ems_handbook_tool，query=上下班时间 考勤制度 工作时间
+2026-07-25 08:01:11 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 被调用，query=上下班时间 考勤制度 工作时间
+2026-07-25 08:01:11 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1, batch=10
+2026-07-25 08:01:12 | INFO     | src.rag.indexing | 已加载 DocStore: /app/data/chroma/docstore.json，节点数≈2
+2026-07-25 08:01:12 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 08:01:12 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 08:01:12 | INFO     | src.rag.reranker | RerankService 配置完成，model=BAAI/bge-reranker-base，top_n=5
+2026-07-25 08:01:12 | INFO     | src.rag.hybrid_retriever | 构建 BM25 检索器，语料节点数=1
+2026-07-25 08:01:12 | WARNING  | llama_index.retrievers.bm25.base | As bm25s.BM25 requires k less than or equal to number of nodes added. Overriding the value of similarity_top_k to number of nodes added.
+2026-07-25 08:01:12 | INFO     | src.rag.hybrid_retriever | HybridAutoMergingRetriever 初始化完成，top_k=20，enable_rerank=False
+2026-07-25 08:01:12 | INFO     | src.rag.pipeline | HybridSearchEngine 已就绪
+2026-07-25 08:01:12 | INFO     | src.rag.hybrid_retriever | 混合检索开始，query=上下班时间 考勤制度 工作时间
+2026-07-25 08:01:13 | INFO     | llama_index.core.retrievers.auto_merging_retriever | > Merging 1 nodes into parent node.
+> Parent node id: 9726beef-55c1-4f68-81dc-c34907391473.
+> Parent node text: # 员工手册（测试样例）
+
+## 第一章 总则
+
+本公司为上海佳得森辉新材料(集团)有限公司。本手册适用于全体正式员工与试用期员工。
+
+## 第二章 考勤管理
+
+1. 标准工作时间为每周一至周五...
+
+2026-07-25 08:01:13 | INFO     | src.rag.hybrid_retriever | 向量/AutoMerging 召回数量=1
+2026-07-25 08:01:13 | INFO     | src.rag.hybrid_retriever | BM25 召回数量=1
+2026-07-25 08:01:13 | INFO     | src.rag.hybrid_retriever | RRF 融合后候选数=2
+2026-07-25 08:01:13 | INFO     | src.rag.hybrid_retriever | 检索成功，返回节点数=2
+2026-07-25 08:01:13 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 执行完成，status=success，nodes=2
+2026-07-25 08:01:13 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=1
+2026-07-25 08:03:00 | INFO     | src.rag.indexing | 已从索引移除 document_id=doc_0932a3533a85，DocStore 节点数=0
+2026-07-25 08:03:00 | INFO     | src.rag.pipeline | 检索引擎缓存已失效
+2026-07-25 08:03:00 | INFO     | src.services.document_service | 已删除文件: /app/data/uploads/doc_0932a3533a85_raw.docx
+2026-07-25 08:03:00 | INFO     | src.services.document_service | 已删除文件: /app/data/uploads/markdown/doc_0932a3533a85.md
+2026-07-25 08:03:00 | INFO     | src.services.document_service | 已删除文件: /app/document/doc_0932a3533a85_大唐电信时频同步设备网管系统_使用手册.md
+2026-07-25 08:03:00 | INFO     | src.services.document_service | 文档已删除 document_id=doc_0932a3533a85 file_name=大唐电信时频同步设备网管系统_使用手册.docx removed_nodes=0
+2026-07-25 08:03:32 | INFO     | src.main | 应用正在关闭
+2026-07-25 08:03:32 | ERROR    | sqlalchemy.pool.impl.AsyncAdaptedQueuePool | Exception terminating connection <AdaptedConnection <asyncpg.connection.Connection object at 0x725132307d30>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 373, in _close_connection
+    self._dialect.do_terminate(connection)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 1127, in do_terminate
+    dbapi_connection.terminate()
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/connectors/asyncio.py", line 415, in terminate
+    self._terminate_force_close()
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 916, in _terminate_force_close
+    self._connection.terminate()
+  File "/usr/local/lib/python3.11/site-packages/asyncpg/connection.py", line 1524, in terminate
+    self._abort()
+  File "/usr/local/lib/python3.11/site-packages/asyncpg/connection.py", line 1576, in _abort
+    self._protocol.abort()
+  File "asyncpg/protocol/protocol.pyx", line 598, in asyncpg.protocol.protocol.BaseProtocol.abort
+  File "asyncpg/protocol/coreproto.pyx", line 1205, in asyncpg.protocol.protocol.CoreProtocol._terminate
+  File "asyncpg/protocol/protocol.pyx", line 956, in asyncpg.protocol.protocol.BaseProtocol._write
+  File "uvloop/handles/stream.pyx", line 675, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x5da3e150a2c0>; the handler is closed
+2026-07-25 08:03:32 | ERROR    | sqlalchemy.pool.impl.AsyncAdaptedQueuePool | The garbage collector is trying to clean up non-checked-in connection <AdaptedConnection <asyncpg.connection.Connection object at 0x725132307d30>>, which will be terminated.  Please ensure that SQLAlchemy pooled connections are returned to the pool explicitly, either by calling ``close()`` or by using appropriate context managers to manage their lifecycle.
+2026-07-25 08:03:40 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:03:46 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 08:03:46 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 08:03:46 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 08:05:00 | INFO     | src.main | 应用正在关闭
+2026-07-25 08:06:25 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:06:32 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 08:06:32 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 08:06:32 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 08:07:24 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1, batch=10
+2026-07-25 08:07:24 | INFO     | src.rag.indexing | 已加载 DocStore: /app/data/chroma/docstore.json，节点数≈2
+2026-07-25 08:07:24 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 08:07:24 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 08:07:25 | INFO     | src.rag.indexing | DocStore 已持久化: /app/data/chroma/docstore.json，节点数=0
+2026-07-25 08:07:25 | INFO     | src.rag.indexing | 已从索引移除 document_id=doc_a88694221bc1，DocStore 节点数=2
+2026-07-25 08:07:25 | INFO     | src.rag.pipeline | 检索引擎缓存已失效
+2026-07-25 08:07:25 | INFO     | src.services.document_service | 已删除文件: /app/data/uploads/doc_a88694221bc1_raw.md
+2026-07-25 08:07:25 | INFO     | src.services.document_service | 文档已删除 document_id=doc_a88694221bc1 file_name=employee_handbook_sample.md removed_nodes=2
+2026-07-25 08:07:27 | INFO     | src.rag.indexing | 已从索引移除 document_id=doc_9ac33861bb12，DocStore 节点数=0
+2026-07-25 08:07:27 | INFO     | src.rag.pipeline | 检索引擎缓存已失效
+2026-07-25 08:07:27 | INFO     | src.services.document_service | 已删除文件: /app/data/uploads/doc_9ac33861bb12_raw.docx
+2026-07-25 08:07:27 | INFO     | src.services.document_service | 已删除文件: /app/data/uploads/markdown/doc_9ac33861bb12.md
+2026-07-25 08:07:27 | INFO     | src.services.document_service | 已删除文件: /app/document/doc_9ac33861bb12_大唐电信时频同步设备网管系统_使用手册.md
+2026-07-25 08:07:27 | INFO     | src.services.document_service | 文档已删除 document_id=doc_9ac33861bb12 file_name=大唐电信时频同步设备网管系统_使用手册.docx removed_nodes=0
+2026-07-25 08:07:39 | INFO     | src.services.document_converter | Word->Markdown 成功(mammoth): doc_e34236c1ce7e_raw.docx，长度=5180010
+2026-07-25 08:07:39 | INFO     | src.services.document_converter | 已生成 Markdown 文件: /app/data/uploads/markdown/doc_e34236c1ce7e.md
+2026-07-25 08:07:40 | INFO     | src.rag.pipeline | 增量索引文档: /app/document/doc_e34236c1ce7e_大唐电信时频同步设备网管系统_使用手册.md，document_id=doc_e34236c1ce7e
+2026-07-25 08:07:40 | INFO     | src.rag.document_loader | 加载单个文档: /app/document/doc_e34236c1ce7e_大唐电信时频同步设备网管系统_使用手册.md
+2026-07-25 08:07:40 | WARNING  | llama_index.core.readers.file.base | `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-07-25 08:07:42 | INFO     | src.rag.indexing | 开始父子分片，文档数=1，chunk_sizes=[2048, 512]
+2026-07-25 08:09:05 | INFO     | src.rag.indexing | 分片完成，总节点=15786，叶子节点(子块)=13157，父块≈2629
+2026-07-25 08:09:13 | INFO     | src.rag.indexing | 开始向 Chroma 写入叶子节点，数量=13157
+2026-07-25 08:17:07 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:17:16 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 08:17:16 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 08:17:16 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 08:23:22 | INFO     | src.main | 应用正在关闭
+2026-07-25 08:23:28 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:23:34 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 08:23:34 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 08:23:34 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 08:24:57 | INFO     | src.services.document_service | 文档已接收，等待后台索引 document_id=doc_f7f14cb84b27 file=employee_handbook_sample.md size=1033
+2026-07-25 08:24:57 | INFO     | src.services.document_service | 后台索引开始 document_id=doc_f7f14cb84b27
+2026-07-25 08:24:57 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1, batch=10
+2026-07-25 08:25:03 | INFO     | src.rag.indexing | 已加载 DocStore: /app/data/chroma/docstore.json，节点数≈0
+2026-07-25 08:25:03 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 08:25:03 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 08:25:03 | INFO     | src.rag.pipeline | 增量索引文档: /app/data/uploads/doc_f7f14cb84b27_raw.md，document_id=doc_f7f14cb84b27
+2026-07-25 08:25:03 | INFO     | src.rag.document_loader | 加载单个文档: /app/data/uploads/doc_f7f14cb84b27_raw.md
+2026-07-25 08:25:03 | WARNING  | llama_index.core.readers.file.base | `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-07-25 08:25:03 | INFO     | src.rag.indexing | 开始父子分片，文档数=1，chunk_sizes=[2048, 512]
+2026-07-25 08:25:03 | INFO     | src.rag.indexing | 分片完成，总节点=2，叶子节点(子块)=1，父块≈1
+2026-07-25 08:25:03 | INFO     | src.rag.indexing | 开始向 Chroma 写入叶子节点，数量=1
+2026-07-25 08:26:32 | INFO     | src.rag.indexing | DocStore 已持久化: /app/data/chroma/docstore.json，节点数=2
+2026-07-25 08:26:32 | INFO     | src.rag.indexing | 索引写入完成，Chroma 文档数=6145
+2026-07-25 08:26:32 | INFO     | src.rag.pipeline | 检索引擎缓存已失效
+2026-07-25 08:26:32 | INFO     | src.rag.pipeline | 增量索引完成: /app/data/uploads/doc_f7f14cb84b27_raw.md
+2026-07-25 08:26:33 | INFO     | src.services.document_service | 后台索引完成 document_id=doc_f7f14cb84b27
+2026-07-25 08:27:24 | INFO     | src.agent.graph | LangGraph Agent 图已编译
+2026-07-25 08:27:24 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=0
+2026-07-25 08:27:25 | INFO     | src.agent.graph | 执行 ems_handbook_tool，query=休假管理 请假制度 年假 病假 事假 婚假 产假
+2026-07-25 08:27:25 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 被调用，query=休假管理 请假制度 年假 病假 事假 婚假 产假
+2026-07-25 08:27:25 | INFO     | src.rag.reranker | RerankService 配置完成，model=BAAI/bge-reranker-base，top_n=5
+2026-07-25 08:27:25 | INFO     | src.rag.hybrid_retriever | 构建 BM25 检索器，语料节点数=1
+2026-07-25 08:27:26 | WARNING  | llama_index.retrievers.bm25.base | As bm25s.BM25 requires k less than or equal to number of nodes added. Overriding the value of similarity_top_k to number of nodes added.
+2026-07-25 08:27:26 | INFO     | src.rag.hybrid_retriever | HybridAutoMergingRetriever 初始化完成，top_k=20，enable_rerank=False
+2026-07-25 08:27:26 | INFO     | src.rag.pipeline | HybridSearchEngine 已就绪
+2026-07-25 08:27:26 | INFO     | src.rag.hybrid_retriever | 混合检索开始，query=休假管理 请假制度 年假 病假 事假 婚假 产假
+2026-07-25 08:27:26 | ERROR    | src.rag.hybrid_retriever | 向量检索失败，尝试降级为纯向量: doc_id cc2587d5-ff8c-4601-9d42-10e78d16c59b not found.
+Traceback (most recent call last):
+  File "/app/src/rag/hybrid_retriever.py", line 124, in _retrieve
+    vector_nodes = self._auto_merging_retriever.retrieve(query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/base/base_retriever.py", line 216, in retrieve
+    nodes = self._retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/retrievers/auto_merging_retriever.py", line 185, in _retrieve
+    cur_nodes, is_changed = self._try_merging(initial_nodes)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/retrievers/auto_merging_retriever.py", line 173, in _try_merging
+    nodes, is_changed_1 = self._get_parents_and_merge(nodes)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/retrievers/auto_merging_retriever.py", line 71, in _get_parents_and_merge
+    parent_node = self._storage_context.docstore.get_document(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/storage/docstore/keyval_docstore.py", line 364, in get_document
+    raise ValueError(f"doc_id {doc_id} not found.")
+ValueError: doc_id cc2587d5-ff8c-4601-9d42-10e78d16c59b not found.
+2026-07-25 08:27:26 | INFO     | src.rag.hybrid_retriever | BM25 召回数量=1
+2026-07-25 08:27:26 | INFO     | src.rag.hybrid_retriever | RRF 融合后候选数=21
+2026-07-25 08:27:26 | INFO     | src.rag.hybrid_retriever | 检索成功，返回节点数=5
+2026-07-25 08:27:26 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 执行完成，status=success，nodes=5
+2026-07-25 08:27:26 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=1
+2026-07-25 08:30:31 | INFO     | src.main | 应用正在关闭
+2026-07-25 08:30:31 | ERROR    | sqlalchemy.pool.impl.AsyncAdaptedQueuePool | Exception terminating connection <AdaptedConnection <asyncpg.connection.Connection object at 0x7176905f7c40>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 373, in _close_connection
+    self._dialect.do_terminate(connection)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 1127, in do_terminate
+    dbapi_connection.terminate()
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/connectors/asyncio.py", line 415, in terminate
+    self._terminate_force_close()
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 916, in _terminate_force_close
+    self._connection.terminate()
+  File "/usr/local/lib/python3.11/site-packages/asyncpg/connection.py", line 1524, in terminate
+    self._abort()
+  File "/usr/local/lib/python3.11/site-packages/asyncpg/connection.py", line 1576, in _abort
+    self._protocol.abort()
+  File "asyncpg/protocol/protocol.pyx", line 598, in asyncpg.protocol.protocol.BaseProtocol.abort
+  File "asyncpg/protocol/coreproto.pyx", line 1205, in asyncpg.protocol.protocol.CoreProtocol._terminate
+  File "asyncpg/protocol/protocol.pyx", line 956, in asyncpg.protocol.protocol.BaseProtocol._write
+  File "uvloop/handles/stream.pyx", line 675, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x654d405fb4b0>; the handler is closed
+2026-07-25 08:30:31 | ERROR    | sqlalchemy.pool.impl.AsyncAdaptedQueuePool | The garbage collector is trying to clean up non-checked-in connection <AdaptedConnection <asyncpg.connection.Connection object at 0x7176905f7c40>>, which will be terminated.  Please ensure that SQLAlchemy pooled connections are returned to the pool explicitly, either by calling ``close()`` or by using appropriate context managers to manage their lifecycle.
+2026-07-25 08:30:37 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:30:42 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 08:30:42 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 08:30:42 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 08:30:42 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1, batch=10
+2026-07-25 08:30:42 | INFO     | src.rag.indexing | 已加载 DocStore: /app/data/chroma/docstore.json，节点数≈2
+2026-07-25 08:30:42 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 08:30:42 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 08:30:42 | INFO     | src.main | RAG 流水线预热完成
+2026-07-25 08:31:16 | INFO     | src.main | 应用正在关闭
+2026-07-25 08:31:26 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:31:32 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 08:31:32 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 08:31:32 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 08:31:32 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1, batch=10
+2026-07-25 08:31:32 | INFO     | src.rag.indexing | 已加载 DocStore: /app/data/chroma/docstore.json，节点数≈2
+2026-07-25 08:31:32 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 08:31:32 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 08:31:32 | INFO     | src.main | RAG 流水线预热完成
+2026-07-25 08:31:35 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:31:38 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1, batch=10
+2026-07-25 08:31:38 | INFO     | src.rag.indexing | 已加载 DocStore: /app/data/chroma/docstore.json，节点数≈2
+2026-07-25 08:31:38 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 08:31:38 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 08:31:38 | INFO     | __main__ | 清空 Chroma / DocStore ...
+2026-07-25 08:33:06 | INFO     | src.rag.pipeline | 检索引擎缓存已失效
+2026-07-25 08:33:06 | INFO     | __main__ | 待重建 ready 文档数=1
+2026-07-25 08:33:06 | INFO     | __main__ | 重建索引 doc_f7f14cb84b27 -> /app/data/uploads/doc_f7f14cb84b27_raw.md
+2026-07-25 08:33:06 | INFO     | src.rag.pipeline | 增量索引文档: /app/data/uploads/doc_f7f14cb84b27_raw.md，document_id=doc_f7f14cb84b27
+2026-07-25 08:33:06 | INFO     | src.rag.document_loader | 加载单个文档: /app/data/uploads/doc_f7f14cb84b27_raw.md
+2026-07-25 08:33:06 | WARNING  | llama_index.core.readers.file.base | `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-07-25 08:33:06 | INFO     | src.rag.indexing | 开始父子分片，文档数=1，chunk_sizes=[2048, 512]
+2026-07-25 08:33:07 | INFO     | src.rag.indexing | 分片完成，总节点=2，叶子节点(子块)=1，父块≈1
+2026-07-25 08:33:07 | INFO     | src.rag.indexing | 开始向 Chroma 写入叶子节点，数量=1
+2026-07-25 08:33:11 | INFO     | src.rag.indexing | DocStore 已持久化: /app/data/chroma/docstore.json，节点数=2
+2026-07-25 08:33:11 | INFO     | src.rag.indexing | 索引写入完成，Chroma 文档数=1
+2026-07-25 08:33:11 | INFO     | src.rag.pipeline | 检索引擎缓存已失效
+2026-07-25 08:33:11 | INFO     | src.rag.pipeline | 增量索引完成: /app/data/uploads/doc_f7f14cb84b27_raw.md
+2026-07-25 08:33:11 | INFO     | __main__ | 清理完成，Chroma 文档数=1
+2026-07-25 08:36:53 | INFO     | src.services.document_service | 文档已接收，等待后台索引 document_id=doc_a0a6eb63cd82 file=员工手册.md size=4369
+2026-07-25 08:36:53 | INFO     | src.services.document_service | 后台索引开始 document_id=doc_a0a6eb63cd82
+2026-07-25 08:36:53 | INFO     | src.rag.pipeline | 增量索引文档: /app/data/uploads/doc_a0a6eb63cd82_raw.md，document_id=doc_a0a6eb63cd82
+2026-07-25 08:36:53 | INFO     | src.rag.document_loader | 加载单个文档: /app/data/uploads/doc_a0a6eb63cd82_raw.md
+2026-07-25 08:36:53 | WARNING  | llama_index.core.readers.file.base | `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-07-25 08:36:53 | INFO     | src.rag.indexing | 开始父子分片，文档数=1，chunk_sizes=[2048, 512]
+2026-07-25 08:36:54 | INFO     | src.rag.indexing | 分片完成，总节点=6，叶子节点(子块)=5，父块≈1
+2026-07-25 08:36:54 | INFO     | src.rag.indexing | 开始向 Chroma 写入叶子节点，数量=5
+2026-07-25 08:36:55 | ERROR    | src.services.document_service | 后台索引失败 document_id=doc_a0a6eb63cd82: Error getting collection: Collection [39bcb717-d4df-40b5-ae5c-e8c0de609d80] does not exist.
+Traceback (most recent call last):
+  File "/app/src/services/document_service.py", line 111, in index_document_background
+    pipeline.add_document(index_target, document_id=document_id)
+  File "/app/src/rag/pipeline.py", line 73, in add_document
+    self.indexer.add_file(file_path, document_id=document_id)
+  File "/app/src/rag/indexing.py", line 214, in add_file
+    return self.index_nodes(nodes, replace=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/indexing.py", line 164, in index_nodes
+    index = VectorStoreIndex(
+            ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 75, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/base.py", line 79, in __init__
+    index_struct = self.build_index_from_nodes(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 309, in build_index_from_nodes
+    return self._build_index_from_nodes(content_nodes, **insert_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 278, in _build_index_from_nodes
+    self._add_nodes_to_index(
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 232, in _add_nodes_to_index
+    new_ids = self._vector_store.add(nodes_batch, **insert_kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/vector_stores/chroma/base.py", line 316, in add
+    self._collection.add(
+  File "/usr/local/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 118, in add
+    self._client._add(
+  File "/usr/local/lib/python3.11/site-packages/chromadb/api/rust.py", line 484, in _add
+    return self.bindings.add(
+           ^^^^^^^^^^^^^^^^^^
+chromadb.errors.NotFoundError: Error getting collection: Collection [39bcb717-d4df-40b5-ae5c-e8c0de609d80] does not exist.
+2026-07-25 08:37:32 | INFO     | src.agent.graph | LangGraph Agent 图已编译
+2026-07-25 08:37:32 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=0
+2026-07-25 08:37:33 | INFO     | src.agent.graph | 执行 ems_handbook_tool，query=员工试用期规定
+2026-07-25 08:37:33 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 被调用，query=员工试用期规定
+2026-07-25 08:37:33 | INFO     | src.rag.reranker | RerankService 配置完成，model=BAAI/bge-reranker-base，top_n=5
+2026-07-25 08:37:33 | INFO     | src.rag.hybrid_retriever | 构建 BM25 检索器，语料节点数=6
+2026-07-25 08:37:33 | WARNING  | llama_index.retrievers.bm25.base | As bm25s.BM25 requires k less than or equal to number of nodes added. Overriding the value of similarity_top_k to number of nodes added.
+2026-07-25 08:37:33 | INFO     | src.rag.hybrid_retriever | HybridAutoMergingRetriever 初始化完成，top_k=20，enable_rerank=False
+2026-07-25 08:37:33 | INFO     | src.rag.pipeline | HybridSearchEngine 已就绪
+2026-07-25 08:37:33 | INFO     | src.rag.hybrid_retriever | 混合检索开始，query=员工试用期规定
+2026-07-25 08:37:33 | ERROR    | src.rag.hybrid_retriever | 向量检索失败，尝试降级为纯向量: Error getting collection: Collection [39bcb717-d4df-40b5-ae5c-e8c0de609d80] does not exist.
+Traceback (most recent call last):
+  File "/app/src/rag/hybrid_retriever.py", line 124, in _retrieve
+    vector_nodes = self._auto_merging_retriever.retrieve(query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/base/base_retriever.py", line 216, in retrieve
+    nodes = self._retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/retrievers/auto_merging_retriever.py", line 183, in _retrieve
+    initial_nodes = self._vector_retriever.retrieve(query_bundle)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/base/base_retriever.py", line 216, in retrieve
+    nodes = self._retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/retrievers/retriever.py", line 115, in _retrieve
+    return self._get_nodes_with_embeddings(query_bundle)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/retrievers/retriever.py", line 231, in _get_nodes_with_embeddings
+    query_result = self._vector_store.query(query, **self._kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/vector_stores/chroma/base.py", line 419, in query
+    return self._query(
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/vector_stores/chroma/base.py", line 437, in _query
+    results = self._collection.query(
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 265, in query
+    query_results = self._client._query(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/chromadb/api/rust.py", line 582, in _query
+    rust_response = self.bindings.query(
+                    ^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.NotFoundError: Error getting collection: Collection [39bcb717-d4df-40b5-ae5c-e8c0de609d80] does not exist.
+2026-07-25 08:37:33 | ERROR    | src.rag.hybrid_retriever | 混合检索失败: Error getting collection: Collection [39bcb717-d4df-40b5-ae5c-e8c0de609d80] does not exist.
+Traceback (most recent call last):
+  File "/app/src/rag/hybrid_retriever.py", line 124, in _retrieve
+    vector_nodes = self._auto_merging_retriever.retrieve(query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/base/base_retriever.py", line 216, in retrieve
+    nodes = self._retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/retrievers/auto_merging_retriever.py", line 183, in _retrieve
+    initial_nodes = self._vector_retriever.retrieve(query_bundle)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/base/base_retriever.py", line 216, in retrieve
+    nodes = self._retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/retrievers/retriever.py", line 115, in _retrieve
+    return self._get_nodes_with_embeddings(query_bundle)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/retrievers/retriever.py", line 231, in _get_nodes_with_embeddings
+    query_result = self._vector_store.query(query, **self._kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/vector_stores/chroma/base.py", line 419, in query
+    return self._query(
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/vector_stores/chroma/base.py", line 437, in _query
+    results = self._collection.query(
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 265, in query
+    query_results = self._client._query(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/chromadb/api/rust.py", line 582, in _query
+    rust_response = self.bindings.query(
+                    ^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.NotFoundError: Error getting collection: Collection [39bcb717-d4df-40b5-ae5c-e8c0de609d80] does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/rag/hybrid_retriever.py", line 200, in retrieve_as_dict
+    nodes = self.retrieve(query)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/hybrid_retriever.py", line 184, in retrieve
+    return self.retriever.retrieve(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/base/base_retriever.py", line 216, in retrieve
+    nodes = self._retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/hybrid_retriever.py", line 128, in _retrieve
+    vector_nodes = self._vector_retriever.retrieve(query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/base/base_retriever.py", line 216, in retrieve
+    nodes = self._retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index_instrumentation/dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/retrievers/retriever.py", line 115, in _retrieve
+    return self._get_nodes_with_embeddings(query_bundle)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/retrievers/retriever.py", line 231, in _get_nodes_with_embeddings
+    query_result = self._vector_store.query(query, **self._kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/vector_stores/chroma/base.py", line 419, in query
+    return self._query(
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/vector_stores/chroma/base.py", line 437, in _query
+    results = self._collection.query(
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 265, in query
+    query_results = self._client._query(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/chromadb/api/rust.py", line 582, in _query
+    rust_response = self.bindings.query(
+                    ^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.NotFoundError: Error getting collection: Collection [39bcb717-d4df-40b5-ae5c-e8c0de609d80] does not exist.
+2026-07-25 08:37:33 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 执行完成，status=error，nodes=0
+2026-07-25 08:37:33 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=1
+2026-07-25 08:39:32 | INFO     | src.services.document_service | 文档已接收，等待后台索引 document_id=doc_a785c6ffff37 file=员工手册.md size=4369
+2026-07-25 08:39:32 | INFO     | src.services.document_service | 后台索引开始 document_id=doc_a785c6ffff37
+2026-07-25 08:39:32 | INFO     | src.rag.pipeline | 增量索引文档: /app/data/uploads/doc_a785c6ffff37_raw.md，document_id=doc_a785c6ffff37
+2026-07-25 08:39:32 | INFO     | src.rag.document_loader | 加载单个文档: /app/data/uploads/doc_a785c6ffff37_raw.md
+2026-07-25 08:39:32 | WARNING  | llama_index.core.readers.file.base | `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-07-25 08:39:32 | INFO     | src.rag.indexing | 开始父子分片，文档数=1，chunk_sizes=[2048, 512]
+2026-07-25 08:39:32 | INFO     | src.rag.indexing | 分片完成，总节点=6，叶子节点(子块)=5，父块≈1
+2026-07-25 08:39:32 | INFO     | src.rag.indexing | 开始向 Chroma 写入叶子节点，数量=5
+2026-07-25 08:39:33 | ERROR    | src.services.document_service | 后台索引失败 document_id=doc_a785c6ffff37: Error getting collection: Collection [39bcb717-d4df-40b5-ae5c-e8c0de609d80] does not exist.
+Traceback (most recent call last):
+  File "/app/src/services/document_service.py", line 111, in index_document_background
+    pipeline.add_document(index_target, document_id=document_id)
+  File "/app/src/rag/pipeline.py", line 73, in add_document
+    self.indexer.add_file(file_path, document_id=document_id)
+  File "/app/src/rag/indexing.py", line 214, in add_file
+    return self.index_nodes(nodes, replace=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/indexing.py", line 164, in index_nodes
+    index = VectorStoreIndex(
+            ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 75, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/base.py", line 79, in __init__
+    index_struct = self.build_index_from_nodes(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 309, in build_index_from_nodes
+    return self._build_index_from_nodes(content_nodes, **insert_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 278, in _build_index_from_nodes
+    self._add_nodes_to_index(
+  File "/usr/local/lib/python3.11/site-packages/llama_index/core/indices/vector_store/base.py", line 232, in _add_nodes_to_index
+    new_ids = self._vector_store.add(nodes_batch, **insert_kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/llama_index/vector_stores/chroma/base.py", line 316, in add
+    self._collection.add(
+  File "/usr/local/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 118, in add
+    self._client._add(
+  File "/usr/local/lib/python3.11/site-packages/chromadb/api/rust.py", line 484, in _add
+    return self.bindings.add(
+           ^^^^^^^^^^^^^^^^^^
+chromadb.errors.NotFoundError: Error getting collection: Collection [39bcb717-d4df-40b5-ae5c-e8c0de609d80] does not exist.
+2026-07-25 08:40:59 | INFO     | src.main | 应用正在关闭
+2026-07-25 08:41:00 | ERROR    | sqlalchemy.pool.impl.AsyncAdaptedQueuePool | Exception terminating connection <AdaptedConnection <asyncpg.connection.Connection object at 0x76f582b03c40>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 373, in _close_connection
+    self._dialect.do_terminate(connection)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 1127, in do_terminate
+    dbapi_connection.terminate()
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/connectors/asyncio.py", line 415, in terminate
+    self._terminate_force_close()
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 916, in _terminate_force_close
+    self._connection.terminate()
+  File "/usr/local/lib/python3.11/site-packages/asyncpg/connection.py", line 1524, in terminate
+    self._abort()
+  File "/usr/local/lib/python3.11/site-packages/asyncpg/connection.py", line 1576, in _abort
+    self._protocol.abort()
+  File "asyncpg/protocol/protocol.pyx", line 598, in asyncpg.protocol.protocol.BaseProtocol.abort
+  File "asyncpg/protocol/coreproto.pyx", line 1205, in asyncpg.protocol.protocol.CoreProtocol._terminate
+  File "asyncpg/protocol/protocol.pyx", line 956, in asyncpg.protocol.protocol.BaseProtocol._write
+  File "uvloop/handles/stream.pyx", line 675, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x5cf9d1257fa0>; the handler is closed
+2026-07-25 08:41:00 | ERROR    | sqlalchemy.pool.impl.AsyncAdaptedQueuePool | The garbage collector is trying to clean up non-checked-in connection <AdaptedConnection <asyncpg.connection.Connection object at 0x76f582b03c40>>, which will be terminated.  Please ensure that SQLAlchemy pooled connections are returned to the pool explicitly, either by calling ``close()`` or by using appropriate context managers to manage their lifecycle.
+2026-07-25 08:41:04 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:41:09 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 08:41:09 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 08:41:09 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 08:41:09 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1, batch=10
+2026-07-25 08:41:10 | INFO     | src.rag.indexing | 已加载 DocStore: /app/data/chroma/docstore.json，节点数≈2
+2026-07-25 08:41:10 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 08:41:10 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 08:41:10 | INFO     | src.main | RAG 流水线预热完成
+2026-07-25 08:41:17 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:41:19 | INFO     | src.rag.pipeline | RAGPipeline 单例已重置
+2026-07-25 08:41:19 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1, batch=10
+2026-07-25 08:41:20 | INFO     | src.rag.indexing | 已加载 DocStore: /app/data/chroma/docstore.json，节点数≈2
+2026-07-25 08:41:20 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 08:41:20 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 08:41:20 | INFO     | __main__ | 清空 Chroma / DocStore ...
+2026-07-25 08:41:20 | INFO     | src.rag.indexing | 已重新绑定 Chroma collection: ems_handbook_collection
+2026-07-25 08:41:20 | INFO     | src.rag.pipeline | 检索引擎缓存已失效
+2026-07-25 08:41:20 | INFO     | __main__ | 待重建文档数=3
+2026-07-25 08:41:20 | INFO     | __main__ | 重建索引 doc_f7f14cb84b27 -> /app/data/uploads/doc_f7f14cb84b27_raw.md
+2026-07-25 08:41:20 | INFO     | src.rag.pipeline | 增量索引文档: /app/data/uploads/doc_f7f14cb84b27_raw.md，document_id=doc_f7f14cb84b27
+2026-07-25 08:41:20 | INFO     | src.rag.document_loader | 加载单个文档: /app/data/uploads/doc_f7f14cb84b27_raw.md
+2026-07-25 08:41:20 | WARNING  | llama_index.core.readers.file.base | `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-07-25 08:41:20 | INFO     | src.rag.indexing | 开始父子分片，文档数=1，chunk_sizes=[2048, 512]
+2026-07-25 08:41:20 | INFO     | src.rag.indexing | 分片完成，总节点=2，叶子节点(子块)=1，父块≈1
+2026-07-25 08:41:20 | INFO     | src.rag.indexing | 开始向 Chroma 写入叶子节点，数量=1
+2026-07-25 08:41:22 | INFO     | src.rag.indexing | DocStore 已持久化: /app/data/chroma/docstore.json，节点数=2
+2026-07-25 08:41:22 | INFO     | src.rag.indexing | 索引写入完成，Chroma 文档数=1
+2026-07-25 08:41:22 | INFO     | src.rag.pipeline | 检索引擎缓存已失效
+2026-07-25 08:41:22 | INFO     | src.rag.pipeline | 增量索引完成: /app/data/uploads/doc_f7f14cb84b27_raw.md
+2026-07-25 08:41:22 | INFO     | __main__ | 重建成功 doc_f7f14cb84b27
+2026-07-25 08:41:22 | INFO     | __main__ | 重建索引 doc_a0a6eb63cd82 -> /app/data/uploads/doc_a0a6eb63cd82_raw.md
+2026-07-25 08:41:22 | INFO     | src.rag.pipeline | 增量索引文档: /app/data/uploads/doc_a0a6eb63cd82_raw.md，document_id=doc_a0a6eb63cd82
+2026-07-25 08:41:22 | INFO     | src.rag.document_loader | 加载单个文档: /app/data/uploads/doc_a0a6eb63cd82_raw.md
+2026-07-25 08:41:22 | WARNING  | llama_index.core.readers.file.base | `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-07-25 08:41:22 | INFO     | src.rag.indexing | 开始父子分片，文档数=1，chunk_sizes=[2048, 512]
+2026-07-25 08:41:23 | INFO     | src.rag.indexing | 分片完成，总节点=6，叶子节点(子块)=5，父块≈1
+2026-07-25 08:41:23 | INFO     | src.rag.indexing | 开始向 Chroma 写入叶子节点，数量=5
+2026-07-25 08:41:24 | INFO     | src.rag.indexing | DocStore 已持久化: /app/data/chroma/docstore.json，节点数=8
+2026-07-25 08:41:24 | INFO     | src.rag.indexing | 索引写入完成，Chroma 文档数=6
+2026-07-25 08:41:24 | INFO     | src.rag.pipeline | 检索引擎缓存已失效
+2026-07-25 08:41:24 | INFO     | src.rag.pipeline | 增量索引完成: /app/data/uploads/doc_a0a6eb63cd82_raw.md
+2026-07-25 08:41:24 | INFO     | __main__ | 重建成功 doc_a0a6eb63cd82
+2026-07-25 08:41:24 | INFO     | __main__ | 重建索引 doc_a785c6ffff37 -> /app/data/uploads/doc_a785c6ffff37_raw.md
+2026-07-25 08:41:24 | INFO     | src.rag.pipeline | 增量索引文档: /app/data/uploads/doc_a785c6ffff37_raw.md，document_id=doc_a785c6ffff37
+2026-07-25 08:41:24 | INFO     | src.rag.document_loader | 加载单个文档: /app/data/uploads/doc_a785c6ffff37_raw.md
+2026-07-25 08:41:24 | WARNING  | llama_index.core.readers.file.base | `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-07-25 08:41:24 | INFO     | src.rag.indexing | 开始父子分片，文档数=1，chunk_sizes=[2048, 512]
+2026-07-25 08:41:24 | INFO     | src.rag.indexing | 分片完成，总节点=6，叶子节点(子块)=5，父块≈1
+2026-07-25 08:41:24 | INFO     | src.rag.indexing | 开始向 Chroma 写入叶子节点，数量=5
+2026-07-25 08:41:25 | INFO     | src.rag.indexing | DocStore 已持久化: /app/data/chroma/docstore.json，节点数=14
+2026-07-25 08:41:25 | INFO     | src.rag.indexing | 索引写入完成，Chroma 文档数=11
+2026-07-25 08:41:25 | INFO     | src.rag.pipeline | 检索引擎缓存已失效
+2026-07-25 08:41:25 | INFO     | src.rag.pipeline | 增量索引完成: /app/data/uploads/doc_a785c6ffff37_raw.md
+2026-07-25 08:41:25 | INFO     | __main__ | 重建成功 doc_a785c6ffff37
+2026-07-25 08:41:25 | INFO     | __main__ | 清理完成，Chroma 文档数=11
+2026-07-25 08:42:09 | INFO     | src.main | 应用正在关闭
+2026-07-25 08:42:14 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:42:25 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 08:42:25 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 08:42:25 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 08:42:25 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1, batch=10
+2026-07-25 08:42:25 | INFO     | src.rag.indexing | 已加载 DocStore: /app/data/chroma/docstore.json，节点数≈14
+2026-07-25 08:42:25 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 08:42:25 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 08:42:25 | INFO     | src.main | RAG 流水线预热完成
+2026-07-25 08:42:46 | INFO     | src.main | 应用正在关闭
+2026-07-25 08:44:12 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:44:20 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 08:44:20 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 08:44:20 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 08:44:20 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1, batch=10
+2026-07-25 08:44:21 | INFO     | src.rag.indexing | 已加载 DocStore: /app/data/chroma/docstore.json，节点数≈14
+2026-07-25 08:44:21 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 08:44:21 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 08:44:21 | INFO     | src.main | RAG 流水线预热完成
+2026-07-25 08:44:43 | INFO     | src.agent.graph | LangGraph Agent 图已编译
+2026-07-25 08:44:43 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=0
+2026-07-25 08:44:44 | INFO     | src.agent.graph | 执行 ems_handbook_tool，query=试用期规定
+2026-07-25 08:44:44 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 被调用，query=试用期规定
+2026-07-25 08:44:44 | INFO     | src.rag.reranker | RerankService 配置完成，model=BAAI/bge-reranker-base，top_n=5
+2026-07-25 08:44:44 | INFO     | src.rag.hybrid_retriever | 构建 BM25 检索器，语料节点数=11
+2026-07-25 08:44:44 | WARNING  | llama_index.retrievers.bm25.base | As bm25s.BM25 requires k less than or equal to number of nodes added. Overriding the value of similarity_top_k to number of nodes added.
+2026-07-25 08:44:44 | INFO     | src.rag.hybrid_retriever | HybridAutoMergingRetriever 初始化完成，top_k=20，enable_rerank=False
+2026-07-25 08:44:44 | INFO     | src.rag.pipeline | HybridSearchEngine 已就绪
+2026-07-25 08:44:44 | INFO     | src.rag.hybrid_retriever | 混合检索开始，query=试用期规定
+2026-07-25 08:44:45 | INFO     | llama_index.core.retrievers.auto_merging_retriever | > Merging 5 nodes into parent node.
+> Parent node id: 1c884423-bf14-4d2c-af8c-bf73d31ab35a.
+> Parent node text: # 员工手册
+
+> 本文件为智能体 Demo 平台内部知识库样例文档，供「企业 GPT 助手」模块检索演示使用。
+> 版本：2025-Q2 · 适用范围：全体员工（含试用期）
+
+---...
+
+2026-07-25 08:44:45 | INFO     | llama_index.core.retrievers.auto_merging_retriever | > Merging 5 nodes into parent node.
+> Parent node id: a919bce2-0e91-4cc2-a54d-9e5afb165609.
+> Parent node text: # 员工手册
+
+> 本文件为智能体 Demo 平台内部知识库样例文档，供「企业 GPT 助手」模块检索演示使用。
+> 版本：2025-Q2 · 适用范围：全体员工（含试用期）
+
+---...
+
+2026-07-25 08:44:45 | INFO     | llama_index.core.retrievers.auto_merging_retriever | > Merging 1 nodes into parent node.
+> Parent node id: 9250b318-446b-4c1b-990b-f121021cd45b.
+> Parent node text: # 员工手册（测试样例）
+
+## 第一章 总则
+
+本公司为上海佳得森辉新材料(集团)有限公司。本手册适用于全体正式员工与试用期员工。
+
+## 第二章 考勤管理
+
+1. 标准工作时间为每周一至周五...
+
+2026-07-25 08:44:45 | INFO     | src.rag.hybrid_retriever | 向量/AutoMerging 召回数量=3
+2026-07-25 08:44:45 | INFO     | src.rag.hybrid_retriever | BM25 召回数量=11
+2026-07-25 08:44:45 | INFO     | src.rag.hybrid_retriever | RRF 融合后候选数=14
+2026-07-25 08:44:45 | INFO     | src.rag.hybrid_retriever | 检索成功，返回节点数=5
+2026-07-25 08:44:45 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 执行完成，status=success，nodes=5
+2026-07-25 08:44:45 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=1
+2026-07-25 08:45:11 | INFO     | src.services.document_service | 文档已接收，等待后台索引 document_id=doc_d9b7bfc3f241 file=大唐电信时频同步设备网管系统_使用手册.docx size=4005627
+2026-07-25 08:45:11 | INFO     | src.services.document_service | 后台索引开始 document_id=doc_d9b7bfc3f241
+2026-07-25 08:45:12 | ERROR    | sqlalchemy.pool.impl.AsyncAdaptedQueuePool | The garbage collector is trying to clean up non-checked-in connection <AdaptedConnection <asyncpg.connection.Connection object at 0x70a40eabbc40>>, which will be terminated.  Please ensure that SQLAlchemy pooled connections are returned to the pool explicitly, either by calling ``close()`` or by using appropriate context managers to manage their lifecycle.
+2026-07-25 08:45:14 | INFO     | src.services.document_converter | Word->Markdown 成功(mammoth): doc_d9b7bfc3f241_raw.docx，长度=5180010
+2026-07-25 08:45:14 | INFO     | src.services.document_converter | 已生成 Markdown 文件: /app/data/uploads/markdown/doc_d9b7bfc3f241.md
+2026-07-25 08:45:15 | INFO     | src.rag.pipeline | 增量索引文档: /app/document/doc_d9b7bfc3f241_大唐电信时频同步设备网管系统_使用手册.md，document_id=doc_d9b7bfc3f241
+2026-07-25 08:45:15 | INFO     | src.rag.document_loader | 加载单个文档: /app/document/doc_d9b7bfc3f241_大唐电信时频同步设备网管系统_使用手册.md
+2026-07-25 08:45:15 | WARNING  | llama_index.core.readers.file.base | `llama-index-readers-file` package not found, some file readers will not be available if not provided by the `file_extractor` parameter.
+2026-07-25 08:45:16 | INFO     | src.rag.indexing | 开始父子分片，文档数=1，chunk_sizes=[2048, 512]
+2026-07-25 08:46:33 | INFO     | src.rag.indexing | 分片完成，总节点=15808，叶子节点(子块)=13175，父块≈2633
+2026-07-25 08:46:39 | INFO     | src.rag.indexing | 开始向 Chroma 写入叶子节点，数量=13175
+2026-07-25 08:50:24 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:50:33 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 08:50:33 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 08:50:33 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 08:50:33 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1, batch=10
+2026-07-25 08:50:33 | INFO     | src.rag.indexing | 已加载 DocStore: /app/data/chroma/docstore.json，节点数≈14
+2026-07-25 08:50:33 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 08:50:33 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 08:50:33 | INFO     | src.main | RAG 流水线预热完成
+2026-07-25 08:51:20 | INFO     | src.main | 应用正在关闭
+2026-07-25 08:52:44 | INFO     | src.core.logging_config | 日志系统已初始化，级别=INFO，目录=/app/logs
+2026-07-25 08:52:53 | INFO     | src.tools.ems_handbook_tool | 已创建 LangGraph 工具: ems_handbook_tool
+2026-07-25 08:52:53 | INFO     | src.core.database | 数据库表初始化完成
+2026-07-25 08:52:53 | INFO     | src.main | 应用启动完成，env=development
+2026-07-25 08:52:53 | INFO     | src.rag.embeddings | 使用 OpenAI Embedding 模型: text-embedding-v4, base=https://dashscope.aliyuncs.com/compatible-mode/v1, batch=10
+2026-07-25 08:52:55 | INFO     | src.rag.indexing | 已加载 DocStore: /app/data/chroma/docstore.json，节点数≈14
+2026-07-25 08:52:55 | INFO     | src.rag.indexing | RAGIndexer 初始化完成，persist_dir=/app/data/chroma，collection=ems_handbook_collection
+2026-07-25 08:52:55 | INFO     | src.rag.pipeline | RAGPipeline 初始化完成
+2026-07-25 08:52:55 | INFO     | src.main | RAG 流水线预热完成
+2026-07-25 08:55:26 | INFO     | src.rag.indexing | 已从索引移除 document_id=doc_d9b7bfc3f241，DocStore 节点数=0
+2026-07-25 08:55:26 | INFO     | src.rag.pipeline | 检索引擎缓存已失效
+2026-07-25 08:55:26 | INFO     | src.services.document_service | 已删除文件: /app/data/uploads/doc_d9b7bfc3f241_raw.docx
+2026-07-25 08:55:26 | INFO     | src.services.document_service | 已删除文件: /app/data/uploads/markdown/doc_d9b7bfc3f241.md
+2026-07-25 08:55:26 | INFO     | src.services.document_service | 已删除文件: /app/document/doc_d9b7bfc3f241_大唐电信时频同步设备网管系统_使用手册.md
+2026-07-25 08:55:27 | INFO     | src.rag.indexing | DocStore 已持久化: /app/data/chroma/docstore.json，节点数=8
+2026-07-25 08:55:27 | INFO     | src.rag.indexing | 已从索引移除 document_id=doc_a785c6ffff37，DocStore 节点数=6
+2026-07-25 08:55:27 | INFO     | src.rag.pipeline | 检索引擎缓存已失效
+2026-07-25 08:55:27 | INFO     | src.services.document_service | 已删除文件: /app/data/uploads/doc_a785c6ffff37_raw.md
+2026-07-25 08:55:27 | INFO     | src.services.document_service | 文档已删除 document_id=doc_d9b7bfc3f241 file_name=大唐电信时频同步设备网管系统_使用手册.docx removed_nodes=0
+2026-07-25 08:55:27 | INFO     | src.services.document_service | 文档已删除 document_id=doc_a785c6ffff37 file_name=员工手册.md removed_nodes=6
+2026-07-25 08:56:23 | INFO     | src.agent.graph | LangGraph Agent 图已编译
+2026-07-25 08:56:23 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=0
+2026-07-25 08:56:24 | INFO     | src.agent.graph | 执行 ems_handbook_tool，query=试用期时长规定
+2026-07-25 08:56:24 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 被调用，query=试用期时长规定
+2026-07-25 08:56:24 | INFO     | src.rag.reranker | RerankService 配置完成，model=BAAI/bge-reranker-base，top_n=5
+2026-07-25 08:56:25 | INFO     | src.rag.hybrid_retriever | 构建 BM25 检索器，语料节点数=6
+2026-07-25 08:56:25 | WARNING  | llama_index.retrievers.bm25.base | As bm25s.BM25 requires k less than or equal to number of nodes added. Overriding the value of similarity_top_k to number of nodes added.
+2026-07-25 08:56:25 | INFO     | src.rag.hybrid_retriever | HybridAutoMergingRetriever 初始化完成，top_k=20，enable_rerank=False
+2026-07-25 08:56:25 | INFO     | src.rag.pipeline | HybridSearchEngine 已就绪
+2026-07-25 08:56:25 | INFO     | src.rag.hybrid_retriever | 混合检索开始，query=试用期时长规定
+2026-07-25 08:56:25 | INFO     | llama_index.core.retrievers.auto_merging_retriever | > Merging 5 nodes into parent node.
+> Parent node id: a919bce2-0e91-4cc2-a54d-9e5afb165609.
+> Parent node text: # 员工手册
+
+> 本文件为智能体 Demo 平台内部知识库样例文档，供「企业 GPT 助手」模块检索演示使用。
+> 版本：2025-Q2 · 适用范围：全体员工（含试用期）
+
+---...
+
+2026-07-25 08:56:25 | INFO     | llama_index.core.retrievers.auto_merging_retriever | > Merging 1 nodes into parent node.
+> Parent node id: 9250b318-446b-4c1b-990b-f121021cd45b.
+> Parent node text: # 员工手册（测试样例）
+
+## 第一章 总则
+
+本公司为上海佳得森辉新材料(集团)有限公司。本手册适用于全体正式员工与试用期员工。
+
+## 第二章 考勤管理
+
+1. 标准工作时间为每周一至周五...
+
+2026-07-25 08:56:25 | INFO     | src.rag.hybrid_retriever | 向量/AutoMerging 召回数量=2
+2026-07-25 08:56:25 | INFO     | src.rag.hybrid_retriever | BM25 召回数量=6
+2026-07-25 08:56:25 | INFO     | src.rag.hybrid_retriever | RRF 融合后候选数=8
+2026-07-25 08:56:25 | INFO     | src.rag.hybrid_retriever | 检索成功，返回节点数=5
+2026-07-25 08:56:25 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 执行完成，status=success，nodes=5
+2026-07-25 08:56:25 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=1
+2026-07-25 08:57:29 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=0
+2026-07-25 08:57:31 | INFO     | src.agent.graph | 执行 ems_handbook_tool，query=工资发放日期 薪酬支付时间
+2026-07-25 08:57:31 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 被调用，query=工资发放日期 薪酬支付时间
+2026-07-25 08:57:31 | INFO     | src.rag.hybrid_retriever | 混合检索开始，query=工资发放日期 薪酬支付时间
+2026-07-25 08:57:31 | INFO     | llama_index.core.retrievers.auto_merging_retriever | > Merging 5 nodes into parent node.
+> Parent node id: a919bce2-0e91-4cc2-a54d-9e5afb165609.
+> Parent node text: # 员工手册
+
+> 本文件为智能体 Demo 平台内部知识库样例文档，供「企业 GPT 助手」模块检索演示使用。
+> 版本：2025-Q2 · 适用范围：全体员工（含试用期）
+
+---...
+
+2026-07-25 08:57:31 | INFO     | llama_index.core.retrievers.auto_merging_retriever | > Merging 1 nodes into parent node.
+> Parent node id: 9250b318-446b-4c1b-990b-f121021cd45b.
+> Parent node text: # 员工手册（测试样例）
+
+## 第一章 总则
+
+本公司为上海佳得森辉新材料(集团)有限公司。本手册适用于全体正式员工与试用期员工。
+
+## 第二章 考勤管理
+
+1. 标准工作时间为每周一至周五...
+
+2026-07-25 08:57:31 | INFO     | src.rag.hybrid_retriever | 向量/AutoMerging 召回数量=2
+2026-07-25 08:57:31 | INFO     | src.rag.hybrid_retriever | BM25 召回数量=6
+2026-07-25 08:57:31 | INFO     | src.rag.hybrid_retriever | RRF 融合后候选数=8
+2026-07-25 08:57:31 | INFO     | src.rag.hybrid_retriever | 检索成功，返回节点数=5
+2026-07-25 08:57:31 | INFO     | src.tools.ems_handbook_tool | ems_handbook_tool 执行完成，status=success，nodes=5
+2026-07-25 08:57:31 | INFO     | src.agent.graph | agent_router 推理开始 session=sess_52fc341e-1a60-459d-b11e-93754933a825 tool_count=1
+2026-07-25 08:57:58 | INFO     | src.main | 应用正在关闭
+2026-07-25 08:57:58 | ERROR    | sqlalchemy.pool.impl.AsyncAdaptedQueuePool | Exception terminating connection <AdaptedConnection <asyncpg.connection.Connection object at 0x7bd1282cbd30>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 373, in _close_connection
+    self._dialect.do_terminate(connection)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 1127, in do_terminate
+    dbapi_connection.terminate()
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/connectors/asyncio.py", line 415, in terminate
+    self._terminate_force_close()
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 916, in _terminate_force_close
+    self._connection.terminate()
+  File "/usr/local/lib/python3.11/site-packages/asyncpg/connection.py", line 1524, in terminate
+    self._abort()
+  File "/usr/local/lib/python3.11/site-packages/asyncpg/connection.py", line 1576, in _abort
+    self._protocol.abort()
+  File "asyncpg/protocol/protocol.pyx", line 598, in asyncpg.protocol.protocol.BaseProtocol.abort
+  File "asyncpg/protocol/coreproto.pyx", line 1205, in asyncpg.protocol.protocol.CoreProtocol._terminate
+  File "asyncpg/protocol/protocol.pyx", line 956, in asyncpg.protocol.protocol.BaseProtocol._write
+  File "uvloop/handles/stream.pyx", line 675, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x5dceb3765150>; the handler is closed
+2026-07-25 08:57:58 | ERROR    | sqlalchemy.pool.impl.AsyncAdaptedQueuePool | The garbage collector is trying to clean up non-checked-in connection <AdaptedConnection <asyncpg.connection.Connection object at 0x7bd1282cbd30>>, which will be terminated.  Please ensure that SQLAlchemy pooled connections are returned to the pool explicitly, either by calling ``close()`` or by using appropriate context managers to manage their lifecycle.
+2026-07-25 08:57:58 | ERROR    | sqlalchemy.pool.impl.AsyncAdaptedQueuePool | Exception terminating connection <AdaptedConnection <asyncpg.connection.Connection object at 0x7bd12603eb60>>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 373, in _close_connection
+    self._dialect.do_terminate(connection)
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 1127, in do_terminate
+    dbapi_connection.terminate()
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/connectors/asyncio.py", line 415, in terminate
+    self._terminate_force_close()
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 916, in _terminate_force_close
+    self._connection.terminate()
+  File "/usr/local/lib/python3.11/site-packages/asyncpg/connection.py", line 1524, in terminate
+    self._abort()
+  File "/usr/local/lib/python3.11/site-packages/asyncpg/connection.py", line 1576, in _abort
+    self._protocol.abort()
+  File "asyncpg/protocol/protocol.pyx", line 598, in asyncpg.protocol.protocol.BaseProtocol.abort
+  File "asyncpg/protocol/coreproto.pyx", line 1205, in asyncpg.protocol.protocol.CoreProtocol._terminate
+  File "asyncpg/protocol/protocol.pyx", line 956, in asyncpg.protocol.protocol.BaseProtocol._write
+  File "uvloop/handles/stream.pyx", line 675, in uvloop.loop.UVStream.write
+  File "uvloop/handles/handle.pyx", line 159, in uvloop.loop.UVHandle._ensure_alive
+RuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x5dceb37bd740>; the handler is closed
+2026-07-25 08:57:58 | ERROR    | sqlalchemy.pool.impl.AsyncAdaptedQueuePool | The garbage collector is trying to clean up non-checked-in connection <AdaptedConnection <asyncpg.connection.Connection object at 0x7bd12603eb60>>, which will be terminated.  Please ensure that SQLAlchemy pooled connections are returned to the pool explicitly, either by calling ``close()`` or by using appropriate context managers to manage their lifecycle.

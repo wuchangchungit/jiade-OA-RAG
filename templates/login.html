@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>登录 - 上海佳得森辉新材料(集团)有限公司 RAG 问答 Demo（作者：吴常春）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/app.css" />
+</head>
+<body>
+  <main class="login-page">
+    <section class="login-shell" aria-label="登录面板">
+      <header class="brand-block">
+        <div class="brand-mark" aria-hidden="true"><span>佳</span></div>
+        <h1 class="brand-title">上海佳得森辉新材料(集团)有限公司 RAG 问答 Demo（作者：吴常春）</h1>
+        <p class="brand-sub">基于知识库的智能多轮问答系统</p>
+      </header>
+
+      <form id="login-form" autocomplete="on">
+        <div class="form-field">
+          <label for="username">用户名</label>
+          <input id="username" name="username" type="text" required maxlength="50" placeholder="请输入用户名" />
+        </div>
+        <div class="form-field">
+          <label for="password">密码</label>
+          <input id="password" name="password" type="password" required maxlength="128" placeholder="请输入密码" />
+        </div>
+        <div class="form-field">
+          <label for="captcha_code">验证码</label>
+          <div class="captcha-row">
+            <input id="captcha_code" name="captcha_code" type="text" required maxlength="10" placeholder="输入验证码" />
+            <div class="captcha-box" id="captcha-box" title="点击刷新验证码">
+              <img id="captcha-image" alt="图形验证码" />
+            </div>
+          </div>
+          <input type="hidden" id="captcha_id" name="captcha_id" />
+        </div>
+        <p class="form-error" id="login-error" role="alert"></p>
+        <button class="btn btn-primary" id="login-btn" type="submit">登录</button>
+      </form>
+      <p class="login-hint">演示账号默认见服务端配置（如 admin / admin123）</p>
+    </section>
+  </main>
+  <script src="/static/js/common.js?v=20260725h"></script>
+  <script src="/static/js/login.js?v=20260725h"></script>
+</body>
+</html>

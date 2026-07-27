@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>上海佳得森辉新材料(集团)有限公司 RAG 问答 Demo（作者：吴常春）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/app.css?v=20260725i" />
+</head>
+<body>
+  <div class="app-page">
+    <header class="app-header">
+      <div class="app-header-brand">
+        <div class="brand-mark" aria-hidden="true"><span>佳</span></div>
+        <h1>上海佳得森辉新材料(集团)有限公司 RAG 问答 Demo（作者：吴常春）</h1>
+      </div>
+      <div class="header-actions">
+        <span class="user-chip" id="user-chip">未登录</span>
+        <button class="btn btn-ghost" id="btn-new-session" type="button">新对话</button>
+        <button class="btn btn-ghost" id="btn-logout" type="button">退出</button>
+      </div>
+    </header>
+
+    <nav class="mobile-tabs" id="mobile-tabs" aria-label="手机端分区切换">
+      <button type="button" class="mobile-tab is-active" data-panel="chat" id="tab-chat">问答</button>
+      <button type="button" class="mobile-tab" data-panel="docs" id="tab-docs">知识库</button>
+    </nav>
+
+    <div class="app-main" id="app-main" data-mobile-panel="chat">
+      <!-- 左侧：文档上传与列表 -->
+      <aside class="sidebar" id="sidebar" aria-label="知识库文档区">
+        <h2 class="sidebar-title">知识库文档</h2>
+        <input type="file" id="file-input" accept=".md,.markdown,.doc,.docx,text/markdown,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden />
+        <button class="btn btn-accent upload-btn" id="btn-upload" type="button">上传文件</button>
+        <p class="brand-sub" style="margin:0;font-size:12px;">支持 Word（.doc/.docx）与 Markdown（.md）</p>
+        <div class="file-list" id="file-list"></div>
+      </aside>
+
+      <!-- 右侧：多轮对话 -->
+      <section class="chat-panel" id="chat-panel" aria-label="多轮对话区">
+        <div class="chat-messages" id="chat-messages">
+          <div class="empty-state" id="empty-state">
+            <strong>开始提问</strong>
+            可询问员工手册、休假制度、新材料产品规范等内容。系统将按需检索知识库并流式生成回答。
+          </div>
+        </div>
+        <div class="chat-composer">
+          <div class="composer-box">
+            <textarea id="chat-input" rows="2" placeholder="请输入问题，Enter 发送，Shift+Enter 换行"></textarea>
+            <button class="btn btn-primary" id="btn-send" type="button" style="width:auto;min-width:96px;">发送</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script src="/static/js/common.js?v=20260725j"></script>
+  <script src="/static/js/app.js?v=20260725j"></script>
+</body>
+</html>

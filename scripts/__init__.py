@@ -1,0 +1,1 @@
+# scripts 包初始化（支持 python -m scripts.build_rag_index）

@@ -1,0 +1,25 @@
+# OpenSSL 自签发证书扩展配置（含 SAN）
+# 由 gen_self_signed_cert 脚本引用；也可手工 openssl req -x509 -config 本文件
+
+[req]
+distinguished_name = req_distinguished_name
+x509_extensions = v3_req
+prompt = no
+
+[req_distinguished_name]
+C = CN
+ST = Shanghai
+L = Shanghai
+O = Jadeson
+OU = RAG
+CN = localhost
+
+[v3_req]
+keyUsage = digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = localhost
+DNS.2 = rag.local
+IP.1 = 127.0.0.1
